@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Markdown 代码高亮 | Heckaitor</title>
+  <meta name="author" content="Kevin Chang">
+  
+  <meta name="description" content="写完两篇才发现，别人的代码部分有高亮显示，还有行号，为什么我的没有呢
+Code block刚刚接触Markdown，被他独特的写作方式所吸引，但毕竟认识时间不长，使用起来难免有些陌生。对于Markdown中的代码块，可以使用
+
+` `
+&amp;lt;pre&amp;gt; &amp;lt;/pre&amp;gt;
+```
+ (四个空格或一个Tab)
+
+等方式来展示代码块
+常用的` `来框起一个单词或短句，Markdown最终会转化成&amp;lt;pre&amp;gt;&amp;lt;/pre&amp;gt;或&amp;lt;code&amp;gt;&amp;lt;/code&amp;gt;
+对于成段的代码块，可以使用其他的几种方式，不过显示出来的没有语法高亮，也没有行号，一点美感都没有，查询Markdown语法，发现了另外一种格式：
+12345&amp;#123;% codeblock [lang:language] [title] [url] [link text] [start:#] [mark:#,#-#] [linenos:false] %&amp;#125;code snippet&amp;#123;% endcodeblock %&amp;#125;
+其中
+
+lang 语言
+title 代码块上方的标题
+url 为本段代码指定一个url，用于下载或引用
+link text url显示的文字
+
+以下三个用于控制行号显示
+
+start:# 从第#行开始显示行号
+mark:#,#-# 在第#行，以及第#-#行显示行号
+linenos:false true 所有行都显示行号，false所有行都不显示行号">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Markdown 代码高亮"/>
+  <meta property="og:site_name" content="Heckaitor"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="http://zipperary.com/atom.xml" title="Heckaitor" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner">
+<div class="alignleft">
+  <h1><a href="/">Heckaitor</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+	<li> <a href="/atom.xml">RSS</a> </li>
+<li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+	function c() {
+		var e = document.createElement("link");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("rel", "stylesheet");
+		e.setAttribute("href", f);
+		e.setAttribute("class", l);
+		document.body.appendChild(e)
+	}
+ 
+	function h() {
+		var e = document.getElementsByClassName(l);
+		for (var t = 0; t < e.length; t++) {
+			document.body.removeChild(e[t])
+		}
+	}
+ 
+	function p() {
+		var e = document.createElement("div");
+		e.setAttribute("class", a);
+		document.body.appendChild(e);
+		setTimeout(function() {
+			document.body.removeChild(e)
+		}, 100)
+	}
+ 
+	function d(e) {
+		return {
+			height : e.offsetHeight,
+			width : e.offsetWidth
+		}
+	}
+ 
+	function v(i) {
+		var s = d(i);
+		return s.height > e && s.height < n && s.width > t && s.width < r
+	}
+ 
+	function m(e) {
+		var t = e;
+		var n = 0;
+		while (!!t) {
+			n += t.offsetTop;
+			t = t.offsetParent
+		}
+		return n
+	}
+ 
+	function g() {
+		var e = document.documentElement;
+		if (!!window.innerWidth) {
+			return window.innerHeight
+		} else if (e && !isNaN(e.clientHeight)) {
+			return e.clientHeight
+		}
+		return 0
+	}
+ 
+	function y() {
+		if (window.pageYOffset) {
+			return window.pageYOffset
+		}
+		return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+	}
+ 
+	function E(e) {
+		var t = m(e);
+		return t >= w && t <= b + w
+	}
+ 
+	function S() {
+		var e = document.createElement("audio");
+		e.setAttribute("class", l);
+		e.src = i;
+		e.loop = false;
+		e.addEventListener("canplay", function() {
+			setTimeout(function() {
+				x(k)
+			}, 500);
+			setTimeout(function() {
+				N();
+				p();
+				for (var e = 0; e < O.length; e++) {
+					T(O[e])
+				}
+			}, 15500)
+		}, true);
+		e.addEventListener("ended", function() {
+			N();
+			h()
+		}, true);
+		e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+		document.body.appendChild(e);
+		e.play()
+	}
+ 
+	function x(e) {
+		e.className += " " + s + " " + o
+	}
+ 
+	function T(e) {
+		e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+	}
+ 
+	function N() {
+		var e = document.getElementsByClassName(s);
+		var t = new RegExp("\\b" + s + "\\b");
+		for (var n = 0; n < e.length; ) {
+			e[n].className = e[n].className.replace(t, "")
+		}
+	}
+ 
+	var e = 30;
+	var t = 30;
+	var n = 350;
+	var r = 350;
+	var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+	var s = "mw-harlem_shake_me";
+	var o = "im_first";
+	var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+	var a = "mw-strobe_light";
+	var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+	var l = "mw_added_css";
+	var b = g();
+	var w = y();
+	var C = document.getElementsByTagName("*");
+	var k = null;
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			if (E(A)) {
+				k = A;
+				break
+			}
+		}
+	}
+	if (A === null) {
+		console.warn("Could not find a node of the right size. Please try a different page.");
+		return
+	}
+	c();
+	S();
+	var O = [];
+	for (var L = 0; L < C.length; L++) {
+		var A = C[L];
+		if (v(A)) {
+			O.push(A)
+		}
+	}
+})()    '>High一下</a> </li>
+
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-04-09T18:12:15.000Z"><a href="/2014/04/10/hexo-markdown-code-highlight/">2014-04-10</a></time>
+      
+      
+  
+    <h1 class="title">Markdown 代码高亮</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>写完两篇才发现，别人的代码部分有高亮显示，还有行号，为什么我的没有呢</p>
+<h2 id="Code_block">Code block</h2><p>刚刚接触Markdown，被他独特的写作方式所吸引，但毕竟认识时间不长，使用起来难免有些陌生。对于Markdown中的代码块，可以使用</p>
+<ul>
+<li>` `</li>
+<li><code>&lt;pre&gt; &lt;/pre&gt;</code></li>
+<li>```</li>
+<li><code> </code>(四个空格或一个Tab)</li>
+</ul>
+<p>等方式来展示代码块</p>
+<p>常用的` `来框起一个单词或短句，Markdown最终会转化成<code>&lt;pre&gt;&lt;/pre&gt;</code>或<code>&lt;code&gt;&lt;/code&gt;</code></p>
+<p>对于成段的代码块，可以使用其他的几种方式，不过显示出来的没有语法高亮，也没有行号，一点美感都没有，查询<a href="http://octopress.org/docs/plugins/codeblock/" target="_blank" rel="external">Markdown语法</a>，发现了另外一种格式：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock <span class="attr_selector">[lang:language]</span> <span class="attr_selector">[title]</span> <span class="attr_selector">[url]</span> <span class="attr_selector">[link text]</span> <span class="attr_selector">[start:#]</span> <span class="attr_selector">[mark:#,#-#]</span> <span class="attr_selector">[linenos:false]</span> %&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">code</span> snippet</span><br><span class="line"></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li><code>lang</code> 语言</li>
+<li><code>title</code> 代码块上方的标题</li>
+<li><code>url</code> 为本段代码指定一个url，用于下载或引用</li>
+<li><code>link text</code> url显示的文字</li>
+</ul>
+<p>以下三个用于控制行号显示</p>
+<ul>
+<li><code>start:#</code> 从<code>第#行</code>开始显示行号</li>
+<li><code>mark:#,#-#</code> 在<code>第#行，以及第#-#行</code>显示行号</li>
+<li><code>linenos:false</code> <code>true</code> 所有行都显示行号，<code>false</code>所有行都不显示行号<a id="more"></a>
+</li>
+</ul>
+<p>对于<code>lang</code>，<a href="http://pygments.org/docs/lexers/" target="_blank" rel="external">这里</a>列出了支持的语言以及对应的字段名，如java，cpp等，以上字段均为可选字段，可以使用默认值，如</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class OOM_Demo &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">final</span> <span class="built_in">int</span> length = <span class="number">100</span> * <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="built_in">byte</span>[] b = <span class="keyword">new</span> <span class="built_in">byte</span>[length];</span><br><span class="line">			<span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</span><br><span class="line">				b[i] = (<span class="built_in">byte</span>) i;</span><br><span class="line">		    &#125;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">String</span> s = <span class="keyword">new</span> <span class="keyword">String</span>(b);</span><br><span class="line">			System.out.<span class="built_in">println</span>(s);</span><br><span class="line">				</span><br><span class="line">		&#125;<span class="keyword">catch</span>(OutOfMemoryError e)&#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">			<span class="comment">// System.out.println("OutOfMemoryError");</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Markdown代码块中的MD语法">Markdown代码块中的MD语法</h3><p>比如上文中显示codenlock语法那段，如果直接用多个 ` 或 <code>codeblock</code>框起来，结果提交后显示成了</p>
+<pre><code><span class="tag">&lt;<span class="title">notexitle</span>&gt;</span>0<span class="tag">&lt;/<span class="title">notextile</span>&gt;</span>
+</code></pre><p>这时，需要采用</p>
+<p><img src="/image/raw-snippt.jpg" alt=""></p>
+<p><a href="https://github.com/tommy351/hexo/issues/587" target="_blank" rel="external">这里</a>，感谢大神们的回复</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Hexo/">Hexo</a>, <a href="/categories/Hexo/Markdown/">Markdown</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Hexo/">Hexo</a>, <a href="/tags/Markdown/">Markdown</a>
+  </div>
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more"></span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=3326447" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+ <nav id="pagination" >
+    
+    <a href="/2014/04/18/project-config-emotion/" class="alignleft prev" >上一頁</a>
+    
+    
+    <a href="/2014/04/09/hexo-build2/" class="alignright next" >下一頁</a>
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+<section id="comment">
+
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"zippera"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->  
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分類</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Hexo/">Hexo</a><small>3</small></li>
+  
+    <li><a href="/categories/Hexo/Markdown/">Markdown</a><small>1</small></li>
+  
+    <li><a href="/categories/Project/">Project</a><small>1</small></li>
+  
+    <li><a href="/categories/Thinking/">Thinking</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1586279270&verifier=0c2cdcf8&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><section>
+Theme of <a href="https://github.com/hexojs/hexo-theme-light">Light</a>, Improved by <a href="/">zippera</a> 
+</section>
+<div class="clearfix"></div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+</body>
+</html>
+
+
+<a href="https://github.com/zippera" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Fork me on GitHub"></a>
